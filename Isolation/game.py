@@ -1,6 +1,5 @@
 import string
 import re
-import numpy as np
 from itertools import product
 from copy import deepcopy
 
@@ -110,6 +109,10 @@ def game_loop(board, left, right, on_turn, prints = True):
             print("Invalid move")
             winner = get_opposite(left, right, on_turn)
             break
+        if prints:
+            print("#################################")
         on_turn = get_opposite(left, right, on_turn)
 
+    if prints:
+        print("#################################")
     return winner

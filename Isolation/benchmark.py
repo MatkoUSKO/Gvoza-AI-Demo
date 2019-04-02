@@ -1,13 +1,13 @@
 #!/usr/bin/env python3
 
 from game import Board, game_loop
-from HumanPlayer import Human_player
 from RandomPlayer import Random_player
 from OnePlyPlayer import One_ply_player
 from MinimaxPlayer import Minimax_player
 
 def main():
 
+    # SETTINGS
     board_size = 8
     n_games = 100
     print_step = 10
@@ -15,11 +15,14 @@ def main():
     wins = {"left": 0, "right": 0}
     for i in range(n_games):
         board = Board(board_size)
-        left_player = Minimax_player(board.left, 5)
+
+        # SET UP PLAYERS
+        left_player = Random_player(board.left)
         # left_player = One_ply_player(board.left)
-        # left_player = Random_player(board.left)
+        # left_player = Minimax_player(board.left, 4)
         right_player = Random_player(board.right)
 
+        # play the game
         winner = game_loop(board, left = left_player, right = right_player, on_turn = left_player, prints = False)
         if winner == left_player:
             wins["left"] += 1
