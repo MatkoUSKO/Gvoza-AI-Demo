@@ -9,8 +9,8 @@ def main():
 
     # SETTINGS
     board_size = 8
-    n_games = 100
-    print_step = 10
+    n_games = 10000
+    print_step = 1000
 
     wins = {"left": 0, "right": 0}
     for i in range(n_games):
@@ -19,7 +19,7 @@ def main():
         # SET UP PLAYERS
         left_player = Random_player(board.left)
         # left_player = One_ply_player(board.left)
-        # left_player = Minimax_player(board.left, 4)
+        # left_player = Minimax_player(board.left, 3)
         right_player = Random_player(board.right)
 
         # play the game
